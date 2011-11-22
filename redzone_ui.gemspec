@@ -2,11 +2,11 @@
 $:.push File.expand_path("../lib", __FILE__)
 
 # Maintain your gem's version:
-require "rmm_layout/version"
+require "redzone_ui/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = "rmm_layout"
+  s.name        = "redzone_ui"
   s.version     = RmmLayout::VERSION
   s.authors     = ["Jon Roberts"]
   s.email       = ["jon@emptyflask.net"]
