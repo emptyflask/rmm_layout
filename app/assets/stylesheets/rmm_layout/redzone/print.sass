@@ -1,0 +1,47 @@
+@import variables
+@import mixins
+
+body
+  margin: 0 auto
+  background: none
+  *
+    overflow: visible !important
+
+#header, #report_issue, #contentNav, #footer
+  display: none
+
+#container
+  margin: 0
+  width: auto
+  background: none
+  position: static
+
+#content, #login_box
+  background: none !important
+
+body#login #container
+  +shadow(0, 0, 0, #000)
+
+.print_only
+  display: inherit
+  page-break-inside: avoid
+
+.no_print
+  display: none
+
+#terms
+  .border
+    border: none !important
+    height: auto !important
+    overflow-y: visible !important
+    padding: 0 !important
+
+.signature_line
+  border-bottom: 1pt solid #000
+  height: 0.5in
+  position: relative
+  p
+    margin: 0
+    position: absolute
+    bottom: 0
+    left: 0

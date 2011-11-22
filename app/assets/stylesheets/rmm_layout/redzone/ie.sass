@@ -1,0 +1,43 @@
+@import variables
+@import mixins
+
+table.data
+  border-width: 1px 1px 1px 0
+  border-collapse: collapse
+
+// this is here because IE ignores lines containing :nth-child()
+// maybe no longer necessary due to table_colors() mixin
+table
+  tr
+    // row classes
+    &.odd
+      td, th
+        background-color: $odd
+      &.active, &.highlight, &.grand_total
+        td, th
+          background-color: mult($odd, $highlight_color)
+      &.adjusted
+        td, th
+          background-color: mult($odd, #ccf)
+
+    &.even
+      td, th
+        background-color: $even
+      &.active, &.highlight, &.grand_total
+        td, th
+          background-color: mult($even, $highlight_color)
+      &.adjusted
+        td, th
+          background-color: mult($even, #ccf)
+  // set bg colors for table cells
+  td, th
+    &.active, &.highlight, &.grand_total
+      background-color: mult($odd, $highlight_color)
+    &.adjusted
+      background-color: mult($odd, #ccf)
+
+.button, input[type="submit"], ul.buttons > li
+  background: #eee
+  display: inline-block
+  &:hover
+    background: #fff

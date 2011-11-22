@@ -1,0 +1,400 @@
+body
+  +tertiary
+  margin: 0
+  padding: 0
+  height: 100%
+  background: $tertiary_bg image-url('redzone/background.jpg') no-repeat center top
+  font-family: $default_font
+  font-size: small
+
+#side_tabs
+  +inline_list
+  width: 20px
+  position: fixed
+  top: 35%
+  left: 0
+  z-index: 2
+  li a
+    position: relative
+    width: 20px
+    height: 90px
+    display: block
+    left: -2px
+    margin-bottom: 5px
+    &:hover
+      background-position: -20px 0
+      left: 0
+    span
+      display: none
+
+  #report_issue
+    background-image: image-url('redzone/report-issue.png')
+
+  #favorite_reports_link
+    background-image: image-url('redzone/favorites.png')
+
+#container
+  position: relative
+  margin: 0 auto 2em
+  width: 960px
+  height: auto !important
+  height: 100%
+  min-height: 100%
+  &.fluid
+    width: 95%
+    min-width: 960px
+    #content
+      width: auto
+
+#header
+  position: relative
+  height: 113px
+  
+  #logo
+    margin: 0
+    a
+      background: image-url('redzone/logo.png') no-repeat
+      width: 300px
+      height: 35px
+      position: absolute
+      left: 0
+      top: 34px
+      span
+        display: none
+
+  #headerNav
+    +inline_list
+    text-align: right
+    top: 18px
+    right: 0
+    position: relative
+    font-size: 11px
+    a
+      font-weight: normal
+      color: #f9f9f9
+      padding-left: 13px
+      margin-left: 10px
+      border-left: 1px solid #777
+      &:hover
+        color: #fff
+    li:first-child a
+      border: none
+
+  #tabs ul
+    margin: 0
+    height: 27px
+    position: absolute
+    bottom: 40px
+    right: 0
+    +inline_list
+    li
+      a
+        height: 27px
+        width: 100px
+        text-align: center
+        display: block
+        float: left
+        background: image-url('redzone/tab.png') no-repeat
+        position: relative
+        top: 2px
+        color: #eaeaea
+        line-height: 27px
+        margin-left: 2px
+        &:hover
+          top: 1px
+          background-position: 0 -27px
+          text-decoration: none
+          color: #fff
+      &.selected a
+        top: 0
+        background-position: 0 -54px
+        color: #fff
+
+  #subnav
+    position: absolute
+    bottom: 0
+    width: 100%
+    height: 24px
+    padding: 8px 0
+    font-size: 11px
+    background: #8e181b
+    +rounded_corners(2px,0,0,0)
+    .left_edge
+      background: image-url('redzone/submenu-left.png')
+      width: 16px
+      height: 24px
+      float: left
+      margin-left: $column_margin
+    .right_edge
+      background: image-url('redzone/submenu-right.png')
+      width: 16px
+      height: 24px
+      float: right
+      margin-right: $column_margin
+    ul
+      +inline_list
+      background: image-url('redzone/submenu-bg.png')
+      height: 24px
+      margin: 0 $column_margin
+      li
+        a
+          background: image-url('redzone/submenu-bg.png')
+          height: 22px
+          line-height: 22px
+          display: block
+          float: left
+          padding: 0 16px
+          color: #f7e5da
+          &:hover
+            background-position: 0 -24px
+        &.selected a
+          background-position: 0 -48px
+          color: #fff
+        &#campaigns, &#advertisers, &#agencies, &#departments
+          &.selected a
+            background-position: 0 0
+            color: #f7e5da
+
+#context_menu, #breadcrumbs
+  ul
+    +inline_list
+    li
+      a
+        float: left
+        margin-right: 1em
+        font-weight: normal
+      &.selected a
+        color: #600
+      &.object > a
+        clear: left
+        font-weight: bold
+        &:after
+          content: ":"
+
+#context_menu
+  font-size: 11px
+  font-weight: normal
+  background: #ddd
+  border-bottom: 1px solid #ccc
+  min-height: 15px
+  margin: -0.5em (-$column_margin) 0.5em
+  padding: 3px $column_margin
+
+#alert, #flash, #message
+  margin: -0.5em (-$column_margin) 0.5em
+  min-height: 20px
+  padding: 6px $column_margin
+  border-width: 1px 0
+  border-style: solid
+  text-align: center
+#alert
+  +gradient(#FDFC8E, #FDFB2F)
+  border-color: #7C1C1B
+#flash, #message
+  +gradient(#B2E8FD, #8FDAFD)
+  border-color: #144E7C
+  color: #222
+
+#breadcrumbs
+  #breadcrumbsLinks
+    padding: 0px
+    margin: 0px
+    font-size: 11px
+    li
+      a
+        font-weight: normal
+        margin-right: 0.5em
+      &:not(:last-child)
+        a:after
+          content: " >"
+
+#content
+  +primary
+  +columns(924px)
+  padding: 0.5em $column_margin 3em
+
+  div.multicolumn
+    -moz-column-count: 3
+    -webkit-column-count: 3
+    column-count: 3
+    -moz-column-gap: 20px
+    -webkit-column-gap: 20px
+    column-gap: 20px
+
+  div.twocolumn
+    -moz-column-count: 2
+    -webkit-column-count: 2
+    column-count: 2
+    -moz-column-gap: 20px
+    -webkit-column-gap: 20px
+    column-gap: 20px
+
+#footer
+  +tertiary
+  position: absolute
+  width: 100%
+  bottom: 0
+  background: $tertiary_bg image-url('redzone/footer-bg.gif') repeat-x
+  border-top: 1px solid $tertiary_bg
+  height: 26px
+  font-size: 11px
+  line-height: 24px
+  p
+    padding: 0 20px
+    margin: 0
+  ul
+    +inline_list
+    padding: 0 20px
+    li a
+      display: block
+      float: left
+      margin-right: 10px
+      padding-right: 10px
+      border-right: 1px solid #000
+
+#floating
+  position: absolute
+  width: 114px
+  left: -150px
+
+
+
+
+
+
+
+#contextNav
+  float: left
+  margin-top: 40px
+
+#contextNavLinks
+  padding: 0px
+  margin: 0px
+  li
+    padding: 10px
+    list-style-type: none
+    font-weight: bold
+    text-align: right
+    font-size: 12px
+    font-family: $default_font
+    font-style: normal
+    text-transform: normal
+    letter-spacing: 0px
+    line-height: 1.2em
+    color: #58544B
+    &.selected
+      background-color: purple
+      border-right: 5px solid #777
+      padding: 10px
+      background-image: image-url('bg.png')
+
+#pageHeading
+  margin-top: 1em
+
+#searchForm
+  float: right
+  font-size: 11px
+  padding-bottom: 4px
+  #search
+    padding-top: 1px
+    height: 13px
+    line-height: 13px
+    font-size: 11px
+    border: 1px solid $border_color
+  #search_submit
+    font-size: 11px
+    height: 17px !important
+    line-height: 13px
+
+.content
+  padding: 10px
+  padding-top: 5px
+
+#contentNav
+  background-color: #B0B0B0
+  font-size: 10px
+  text-transform: uppercase
+  height: 33px
+  font-weight: bold
+  margin-bottom: 0px
+  
+  #contentNavLinks
+    margin: 0
+    padding: 5px
+    li
+      display: inline
+      a, span
+        display: block
+        border: 1px solid #fff
+        padding: 3px 5px
+        margin-right: 5px
+        color: #fff
+        background-color: #666
+        float: left
+        color: #fff
+        &.drawer
+          padding-right: 18px
+          background: #666 image-url('icons/down-white.png') no-repeat right center
+        &.favorite
+          cursor: pointer
+          width: 16px
+          height: 16px
+          padding: 3px 0 1px
+          margin: 0 5px 0 0
+          border: none
+          background: none
+        &.step
+          background: #B0B0B0
+          &.current
+            background: #866
+      &.right
+        a, form
+          float: right
+          margin-right: 0
+          margin-left: 5px
+
+#mainContent
+  color: #444
+  text-decoration: none
+  word-spacing: 0.15em
+  text-align: left
+  letter-spacing: 0
+  line-height: 1.5em
+  min-height: 400px
+  overflow-x: auto
+  overflow-y: hidden
+  padding-bottom: 2em
+  clear: both
+  
+#detailsPane, .drawerPane
+  padding: 1px 15px 1px 15px
+  margin-top: 0px
+  background-color: #DFDFDF
+
+#content
+  .drawerPane
+    form:not(#delivery_filter), #sites
+      +columns(894px)
+
+#detailsPane
+  margin-top: 5px
+
+.drawerPane
+  border-bottom: thin solid black
+
+#floatdiv
+  +tertiary
+  +rounded_corners(5px,5px,5px,5px)
+  background: rgba(#241C1B, 0.5)
+  position: absolute
+  width: 114px
+  height: 190px
+  left: 0px
+  top: 0px
+  padding: 10px
+  border: 1px solid $border_color
+  font-size: 11px
+  h2
+    font-size: 13px
+  a
+    font-weight: normal

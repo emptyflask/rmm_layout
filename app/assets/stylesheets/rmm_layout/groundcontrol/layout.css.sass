@@ -1,0 +1,204 @@
+body
+  +tertiary
+  margin: 0
+  padding: 0
+  height: 100%
+  background: $tertiary_bg image-url('groundcontrol/stars.jpg') no-repeat center top
+  font-family: $default_font
+  font-size: small
+
+#side_tabs
+  +inline_list
+  width: 20px
+  position: fixed
+  top: 35%
+  left: 0
+  z-index: 2
+  li a
+    position: relative
+    width: 20px
+    height: 90px
+    display: block
+    left: -2px
+    margin-bottom: 5px
+    &:hover
+      background-position: -20px 0
+      left: 0
+    span
+      display: none
+
+#container
+  position: relative
+  margin: 0 auto 2em
+  width: 960px
+  height: auto !important
+  height: 100%
+  min-height: 100%
+  &.fluid
+    width: 95%
+    min-width: 960px
+    #content
+      width: auto
+
+#header
+  position: relative
+  height: 113px
+
+  #logo
+    display: block
+    margin-left: auto
+    margin-right: auto
+    margin: 0
+    background: image-url('groundcontrol/logo-bg.png') no-repeat
+    width: 437px
+    height: 50px
+    position: absolute
+    left: 0
+    top: 23px
+    a
+      background: image-url('groundcontrol/ground-control.png') no-repeat
+      width: 395px
+      height: 53px
+      display: block
+      position: absolute
+      left: 7px
+      top: 6px
+      span
+        display: none
+  
+  #rmm
+    margin: 0
+    position: absolute
+    right: 0
+    top: 36px
+    a
+      display: block
+      background: image-url('groundcontrol/rmm.png') no-repeat
+      width: 113px
+      height: 34px
+      span
+        display: none
+
+  nav
+    position: absolute
+    bottom: 0
+    width: 100%
+    height: 24px
+    padding: 8px 0
+    font-size: 11px
+    background: image-url('groundcontrol/header-bg.png')
+    +rounded_corners(0,3px,0,0)
+    .left_edge
+      background: image-url('groundcontrol/nav/left.png')
+      width: 16px
+      height: 24px
+      float: left
+      margin-left: $column_margin
+    .right_edge
+      background: image-url('groundcontrol/nav/right.png')
+      width: 16px
+      height: 24px
+      float: right
+      margin-right: $column_margin
+    ul
+      +inline_list
+      background: image-url('groundcontrol/nav/bg.png')
+      height: 24px
+      margin: 0 $column_margin
+      li
+        a
+          background: image-url('groundcontrol/nav/bg.png')
+          height: 22px
+          line-height: 22px
+          display: block
+          float: left
+          padding: 0 16px
+          color: #dbf8ff
+          &:hover
+            background-position: 0 -24px
+        &.selected a
+          background-position: 0 -48px
+          color: #fff
+
+#context_menu, #breadcrumbs
+  ul
+    +inline_list
+    li
+      a
+        float: left
+        margin-right: 1em
+        font-weight: normal
+      &.selected a
+        color: #600
+      &.object > a
+        clear: left
+        font-weight: bold
+        &:after
+          content: ":"
+
+#context_menu
+  font-size: 11px
+  font-weight: normal
+  background: #ddd
+  border-bottom: 1px solid #ccc
+  min-height: 15px
+  margin: -0.5em (-$column_margin) 0.5em
+  padding: 3px $column_margin
+
+#alert, #flash, #message
+  margin: -0.5em (-$column_margin) 0.5em
+  min-height: 20px
+  padding: 6px $column_margin
+  border-width: 1px 0
+  border-style: solid
+  text-align: center
+#alert
+  +gradient(#FDFC8E, #FDFB2F)
+  border-color: #7C1C1B
+#flash, #message
+  +gradient(#B2E8FD, #8FDAFD)
+  border-color: #144E7C
+  color: #222
+
+#breadcrumbs
+  #breadcrumbsLinks
+    padding: 0px
+    margin: 0px
+    font-size: 11px
+    li
+      a
+        font-weight: normal
+        margin-right: 0.5em
+      &:not(:last-child)
+        a:after
+          content: " >"
+
+#content
+  +primary
+  +columns(924px)
+  padding: 0.5em $column_margin 3em
+
+  div.multicolumn
+    -moz-column-count: 3
+    -webkit-column-count: 3
+    column-count: 3
+    -moz-column-gap: 20px
+    -webkit-column-gap: 20px
+    column-gap: 20px
+
+  div.twocolumn
+    -moz-column-count: 2
+    -webkit-column-count: 2
+    column-count: 2
+    -moz-column-gap: 20px
+    -webkit-column-gap: 20px
+    column-gap: 20px
+
+#footer
+  background: #18668e - #111
+  position: absolute
+  width: 100%
+  bottom: -10px
+  border-top: 1px solid #18668e - #222
+  height: 10px
+  +rounded_corners(0,0,5px,5px)

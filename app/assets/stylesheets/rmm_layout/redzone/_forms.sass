@@ -1,0 +1,531 @@
+// Generic ----------------------------
+
+label
+  font-weight: bold
+  &.required abbr
+    color: red
+
+input.button, input[type="submit"]
+  font-family: $default_font
+  width: auto
+  max-width: none
+  height: auto
+  margin: 0
+  cursor: pointer
+  vertical-align: baseline
+
+
+// Formtastic ----------------------------
+
+form.formtastic fieldset
+  legend
+    span
+      font-family: $default_font
+      font-size: 18px
+      font-weight: normal
+      color: #99AF75
+    &.label
+      padding-top: 0
+      label
+        color: #444
+        padding-top: 0
+        width: auto
+  abbr
+    margin-left: 3px
+    color: red
+  &.inputs > ol
+    margin-bottom: 5px
+  ol li
+    &.date fieldset ol
+      border: none
+      padding-left: 25%
+    &.string, &.stringish
+      input.datepicker, input.date
+        width: 186px
+    &.hidden
+      display: none !important
+    &.select label
+      padding-top: 0
+  &.inputs
+    ol li.calendar input
+      width: 185px
+    margin-top: 1em
+    li.threeColumns ol li
+      float: left
+      width: 33%
+      white-space: nowrap
+      overflow: hidden
+    li:not(.column_50) .plain
+      padding-left: 25%
+      width: 670px
+  .inline-hints
+    font-size: 10px
+    font-style: italic
+  &.buttons
+    margin: 1em 0
+    a.button
+      display: block
+      height: 17px
+      line-height: 15px
+
+// Nested form fields
+.formtastic
+  .add_nested_fields
+    +action(url('/images/icons/16x16/add.png')) 
+    +with_label
+  .fields
+    clear: both
+    margin-bottom: 1em
+    fieldset.inputs
+      ol
+        li.remove
+          a.remove_nested_fields
+            +action
+            float: right
+            background-image: url('/images/icons/16x16/delete.png')
+            span
+              display: none
+
+.errorExplanation
+  li
+    color: red
+
+
+// Specific forms ----------------------------
+
+#campaign_comment_form
+  textarea
+    width: 50%
+    height: 100px
+    
+// Publisher emails
+#publisher_emails_form
+  textarea
+    width: 450px
+    height: 200px
+
+// Add sites to campaign
+#add_site_form
+  form.formtastic fieldset ol li:after
+    clear: none
+  width: 800px
+  #site_selection
+    float: left
+    width: 630px
+    padding-right: 10px
+    border-right: 1px solid $border_color
+    #site_search
+      input
+        width: 80%
+        float: right
+    #create_site
+      background: #ddd
+      width: 620px
+      margin: 1em -10px
+      padding: 5px 10px
+      clear: both
+      label
+        width: 24%
+      .left
+        width: 300px
+        float: left
+        h3
+          margin-top: 0
+      .right
+        h4
+          padding: 7px 0 0
+        margin-left: 320px
+  #sites_added
+    padding-top: 1px
+    margin-left: 650px
+    ul#site_list
+      +plain_list
+
+// Add sites to campaign en masse
+.import_sites_form
+  textarea
+    width: 600px
+  ul
+    padding-left: 20px
+  ul.unstyled
+    padding: 0px
+    margin: 0px
+    li
+      list-style-type: none
+    li.indented
+      padding-left: 20px
+
+// New flight
+.add_allocation_form
+  form.formtastic
+    +columns(800px)
+    min-height: 400px
+    .column_33
+      label, input, textarea
+        display: block
+        float: none
+        width: 90% !important
+    .buttons
+      padding: 0
+      li
+        padding-left: 0.5em
+        padding-right: 0
+        float: right
+    #site_allocation_start_date_input, #site_allocation_total_delivery_input
+      width: 42%
+      float: left
+      margin-right: 5%
+    #site_allocation_end_date_input, #site_allocation_rate_type_input
+      width: 42%
+      clear: none
+      float: left
+    #site_allocation_reference_tag_input
+      width: 50%
+      clear: none
+      float: left
+    #site_allocation_delivery_notes_input
+      clear: left
+    #site_allocation_geo_targets_input
+      margin-bottom: 0.5em
+    .site_allocation_geo_target_checkboxes
+      width: 90%
+      height: 55px
+      overflow: auto
+      input[type='checkbox'], input.checkbox
+        margin-top: 5px
+        width: 2em !important
+        float: left
+        clear: left
+    #site_allocation_delivery_notes, #site_allocation_custom_geo
+      padding: 1px
+
+// Report filters
+#delivery_filter
+  width: 100%
+#report_filters
+  padding: 10px
+  +fluid_columns(904px,1600px)
+  // this might be useful elsewhere...
+  .top
+    label, input, select, textarea
+      float: none
+      width: 100% !important
+  .string, .select
+    label
+      width: 50%
+      padding-top: 0
+    input, select
+      width: 48%
+      float: right
+  .buttons
+    padding-left: 35%
+  #filters_category_input
+    label
+      width: 35%
+    select
+      width: 60%
+  #favorite_reports
+    border: 1px solid $border_color
+    padding: 0.5em 1em 1em
+    margin: 1em 0
+    background: #eee
+    h3
+      font-size: 14px
+    ul
+      font-size: 12px
+      li
+        line-height: 1
+        margin-bottom: 0.75em
+
+// New report filters
+#delivery_filter
+  .top
+    label, input, select, textarea
+      float: none
+      width: 100% !important
+
+// Create new report (/delivery_reports/new)
+#new_delivery_report
+  li
+    .manual
+      margin-left: 25%
+      margin-bottom: 0.5em
+      label
+        width: 15%
+    #schedule_section
+      li label
+        padding-top: 0.2em !important
+
+// Offer
+#accept_reject_offer_form
+  textarea
+    width: 100%
+
+// New campaign
+#dimensions
+  margin: 1em 0
+  clear: both
+  +columns(924px)
+  .column_20
+    background: #ddd
+    height: 320px
+    +rounded_corners(5px,5px,5px,5px)
+    overflow-y: auto
+    &.on
+      background: #bbb
+    legend.label
+      width: 100%
+      padding-bottom: 5px
+      label
+        font-size: 13px
+        background: #777
+        color: #fff
+        +rounded_corners(5px,5px,5px,5px)
+        margin: 0 5px
+        padding: 3px 5px
+    fieldset
+      margin-top: 5px
+      ol
+        li
+          margin-bottom: 1em
+          &.check_boxes
+            input
+              vertical-align: baseline !important
+          &.boolean
+            padding-left: 8px
+            .inline-hints
+              margin-top: 0
+          ol
+            background: #eee
+            +rounded_corners(5px,5px,5px,5px)
+            margin: 0 5px
+            padding: 3px 0
+            li
+              font-size: 12px
+              padding: 5px 5px
+              margin: 0
+              border-top: 1px solid #bbb
+              &:first-child
+                border: none
+
+// Campaign setup
+li#campaign_sales_reps_input
+  // background: image-url('icons/16x16/left.png') no-repeat center center
+  ul#sales_reps
+    margin-left: 25%
+    padding-top: 0.5em
+    li
+      clear: left
+
+// Autocomplete popup style
+.ui-autocomplete
+  +shadow(0,3px,4px)
+  border: 1px solid #000 !important
+  a.create-new
+    color: #900 !important
+
+form.formtastic
+  td
+    fieldset.inputs
+      margin-top: 5px
+      ol li.inline
+        &.check_boxes, &.radio
+          ol
+            li
+              float: left
+              margin-right: 1em
+              label, input
+                display: inline
+  .column_50
+    li.boolean
+      label
+        padding-left: 35%
+    li.stringish, li.string, li.select, li.time_zone, li.date, li.datetime, li.numeric, li.country
+      label
+        width: 35%
+      input
+        width: 55%
+  .column_25, .column_33
+    li.select
+      label
+        width: 35%
+      input
+        width: 55%
+  td, .column_25, .column_20, .column_33
+    fieldset
+      li.check_boxes, li.radio
+        fieldset
+          legend.label, legend.label label
+            position: static !important
+            width: auto
+            float: none
+          ol
+            float: none
+            padding-left: 0 !important
+            width: auto
+            li
+              margin: 8px 0
+              label
+                font-weight: normal
+              input
+                vertical-align: bottom
+      li.boolean
+        label
+          padding-left: 0
+          float: none
+        .inline-hints
+          margin-left: 0
+
+// New site allocation
+form.site_allocation
+  li#site_allocation_total_delivery_input
+    float: left
+    width: 360px
+    margin-top: 0
+    label
+      width: 231px
+    input
+      width: 100px
+  li#site_allocation_rate_type_input
+    margin-bottom: 0
+  li#site_allocation_default_rate_input
+    input
+      width: 100px
+  .zone_row_warning
+    img
+      float: left
+      margin-right: 3px
+
+// New budget allocation
+form.formtastic.budget_allocation
+  #budget_allocation_calc_input
+    legend
+      width: 50%
+    ol
+      width: 45%
+      padding-left: 51%
+      line-height: 1.5em
+      li
+        margin-bottom: 19px
+  #budget_allocation_revenue_per_amount_input, #budget_allocation_target_quantity_input, #budget_allocation_total_budget_input
+    margin-bottom: 12px
+    label
+      display: none
+    input[type='text']
+      width: 100px
+      &:disabled
+        font-weight: bold
+        background: #ff9
+  #budget_allocation_revenue_per_amount_input
+    float: left
+    margin-right: 1em
+  #budget_allocation_rate_type_input
+    margin: 0
+  
+
+// Contact list fields
+form.formtastic
+  fieldset.contact_list .contact
+    margin-left: 20px
+    .separator
+      width: 100%
+      border-top: 1px dashed #444
+  a.add_contact
+    margin-left: 20px
+  a.add_revenue_rate
+    font-weight: bold
+
+// Insertion Orders form
+form.formtastic
+  fieldset.selectable
+    li.boolean
+      float: left
+      width: 400px
+      label
+        margin-left: 231px
+        padding-left: 0
+    li.select
+      float: left
+      width: 500px
+    margin-bottom: 0
+
+// Campaign Survey
+form.formtastic.campaign_survey
+  legend.label
+    width: 100%
+    float: none
+    position: static
+    height: auto
+    display: block
+    label
+      position: static
+      float: none
+  .radio
+    ol
+      clear: both
+      float: none
+      width: auto
+      padding: 0
+  #campaign_survey_recommend_input
+    ol li
+      float: left
+      padding-right: 1em
+  .inline-hints
+    float: none
+    margin: 0
+    padding: 0
+  #campaign_survey_feedback_input, #campaign_survey_achieve_goals_note_input
+    label
+      float: none
+      width: auto
+      margin-bottom: 0.5em
+
+// Sites index filter
+#site_filter_form.formtastic
+  .column_33 .numeric
+    margin-top: 0
+    ol li
+      margin-bottom: 0.5em
+    font-size: 12px
+    label
+      width: 79%
+    input
+      width: 20%
+
+// Video Tags - Step 2
+#priorities
+  .priority
+    .huge
+      float: left
+      height: 90px
+      line-height: 90px
+      font-size: 80px
+      font-weight: bold
+      margin-right: 10px
+      color: #999
+    ul.draggable
+      height: 90px
+      margin-bottom: 10px
+      &.empty
+        background: #eee
+
+// Neuron Ad form
+#event_trackers
+  margin-bottom: 2em
+  .fields
+    fieldset.inputs
+      ol
+        li.input
+          &.select, &.stringish
+            display: inline
+            label
+              width: 10%
+              margin-right: 2em
+            input, select
+              float: left
+              width: 25%
+              margin-right: 10%
+            p.inline-errors
+              margin: 0
+              display: block
+              float: left

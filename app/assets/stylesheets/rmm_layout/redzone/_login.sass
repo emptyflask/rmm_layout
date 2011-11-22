@@ -1,0 +1,29 @@
+body#login
+
+  #container
+    width: 600px
+    margin: 70px auto 30px
+    +shadow(0, 5px, 15px, #000)
+
+    #header
+      padding: 8px 20px
+      height: auto
+      min-height: 24px
+      +rounded_corners(3px,3px)
+      background: #8e181b
+      h1
+        margin: 0
+        font-size: 24px
+        line-height: 1
+        color: #fff
+        text-transform: uppercase
+
+    #login_box
+      +primary
+      +columns(564px)
+      margin: 0 auto
+      padding: 0.5em $column_margin
+  
+    #footer
+      position: static
+

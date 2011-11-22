@@ -1,0 +1,142 @@
+table.data
+  width: 100%
+  font-size: 11px
+  border: solid $border_color
+  border-width: 1px 0 0
+  border-spacing: 0
+  a
+    font-size: 12px
+  thead th, table > tr th
+    +secondary
+    +gradient($secondary_bg, #555)
+    padding: 3px 10px
+    text-align: left
+    a
+      color: #fff !important
+  td, tbody th
+    padding: 5px 10px
+    border-left: 1px solid $border_color
+    text-align: left
+    &.action
+      text-align: right
+      white-space: nowrap
+    &.container
+      border: solid $border_color
+      border-width: 1px 0 1px 1px
+      background: #bbb
+      padding: 5px
+      .box
+        +shadow(0,2px,3px,#555)
+        background: #fff
+      table
+        +shadow(0,2px,3px,#555)
+        th
+          padding: 1px 10px
+          background: #666
+        td
+          padding: 2px 10px
+  td.adjustable
+    span
+      cursor: pointer
+      padding: 1px 3px
+      &:hover
+        background: rgba(0,0,0,0.15)
+    input
+      margin: 0
+      padding: 1px
+  td.revertable
+    a.revert
+      display: inline-block
+      visibility: hidden
+      width: 16px
+      height: 16px
+      background: image-url('icons/16x16/arrow_rotate_clockwise.png')
+      vertical-align: top
+    &:hover
+      a.revert
+        visibility: visible
+  th, td
+    &:last-child
+      border-right: 1px solid $border_color
+  tbody, tfoot
+    tr:last-child, tr.last
+      td, th
+        border-bottom: 1px solid $border_color
+  &.no_borders
+    border: none
+    th, td
+      border: none
+  &.collapsible
+    // For tables that may have hidden rows
+    border-bottom: 1px solid $border_color
+    tr:last-child
+      td, th
+        border-bottom: none
+
+table
+  tr
+    // cell classes
+    th, td
+      &.number, &.percent, &.money
+        text-align: right
+      &.short
+        width: 18px
+      &.status
+        width: 90px
+  tbody tr
+    // row classes
+    &:nth-child(odd)
+      +table_colors($odd)
+    &:nth-child(even)
+      +table_colors($even)
+    &.odd
+      +table_colors($odd)
+    &.even
+      +table_colors($even)
+
+  tr
+    &.default
+      > td, > th
+        color: #BBB
+        a
+          color: #BBB
+          &:hover
+            color: #999
+      &.adjusted
+        > td, > th
+          color: #555
+    &.total
+      > td, > th
+        font-weight: bold
+        border-bottom: 3px black solid 
+        border-top: 1px black solid
+    &.grand_total
+      > td, > th
+        font-weight: bold
+        color: red
+    &.deleted
+      > td, > th
+        background-color: #FF9090
+        color: #FF9090
+    &.section_title
+      > td, > th
+        background: inherit
+        color: inherit
+        border-width: 0 0 1px 0 !important
+        padding: 1em 0 0.25em 0
+        &, a
+          font-size: 16px
+
+table.plain
+  background: none
+  tbody tr, tr
+    td, th
+      background: none
+
+table.top
+  td,th
+    vertical-align: top
+
+#update_campaign_sites_form table.data
+  tbody tr:last-child:not(.last) td
+    border-bottom: 0
