@@ -1,3 +1,3 @@
-module RmmLayout
-  VERSION = "0.0.1"
+module RedzoneUi
+  VERSION = "0.0.2"
 end
