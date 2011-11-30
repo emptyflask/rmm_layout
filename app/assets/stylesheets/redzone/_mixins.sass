@@ -108,7 +108,7 @@
   .column_100
     width: $width
     clear: left
-  .column_20, .column_25, .column_33, .column_50, .column_66, .column_75
+  .column_20, .column_25, .column_33, .column_50, .column_66, .column_75, .column_80
     float: left
     margin-right: $column_margin
     &.first
@@ -127,9 +127,11 @@
     width: floor(($width - $column_margin) / 3 * 2)
   .column_75
     width: floor(($width - $column_margin) * 0.75)
+  .column_80
+    width: 100 - floor(($width - $column_margin * 4) / 5)
   .equal_height_wrapper
     overflow: hidden
-    .column_20, .column_25, .column_33, .column_50, .column_66, .column_75
+    .column_20, .column_25, .column_33, .column_50, .column_66, .column_75, .column_80
       padding-bottom: 9999px
       margin-bottom: -9999px
 
