@@ -87,5 +87,15 @@ form.formtastic fieldset
               display: none
 
 .errorExplanation
-  li
+  padding: 5px 10px
+  border: 1px solid #900
+  background: rgba(255,0,0,0.1)
+  .error_count
+    margin: 0.5em 0
     color: red
+    float: left
+    font-weight: bold
+  ul
+    +clearfix
+    li
+      color: #C00
